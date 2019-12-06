@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 
 namespace SeleniumTests
@@ -20,7 +20,7 @@ namespace SeleniumTests
         [SetUp]
         public void SetupTest()
         {
-            driver = new FirefoxDriver();
+            driver = new ChromeDriver();
             baseURL = "https://www.katalon.com/";
             verificationErrors = new StringBuilder();
         }
@@ -47,7 +47,6 @@ namespace SeleniumTests
             driver.FindElement(By.Id("newsletter-email")).Clear();
             driver.FindElement(By.Id("newsletter-email")).SendKeys("Adrian2000@.com");
             driver.FindElement(By.Id("newsletter-subscribe-button")).Click();
-            driver.FindElement(By.Id("newsletter-result-block")).Click();
         }
         private bool IsElementPresent(By by)
         {
